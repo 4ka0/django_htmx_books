@@ -1,0 +1,48 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+    {% if book_list %}
+
+        <table class="table table-bordered border-secondary">
+
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Read</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for book in book_list %}
+
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.price }}</td>
+                        <td>{{ book.read }}</td>
+                        <td>
+                            <a href="">Edit</a> |
+                            <a href="">Delete</a>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+              </tbody>
+
+        </table>
+
+    {% else %}
+
+        <p>No books have been added yet.</p>
+
+    {% endif %}
+
+{% endblock %}
