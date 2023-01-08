@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,16 @@
     <div class="container">
         <div class="row">
             <div class="col">
+
+                <form hx-post="{% url 'add_book' %}"
+                      hx-target="#books"
+                      hx-swap="afterend" >
+
+                    {{ form|crispy }}
+
+                    <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                </form>
+
                 {% block content %}
                 {% endblock content %}
             </div>
