@@ -20,17 +20,25 @@
 
                 {% include "partial_create_book_form.html" %}
 
-                <!-- List of books -->
+                <!-- Table of books -->
 
-                <div id="book-list" class="mt-4">
+                <table class="table table-bordered mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 30%">Title</th>
+                            <th scope="col" style="width: 25%">Author</th>
+                            <th scope="col" style="width: 10%">Price</th>
+                            <th scope="col" style="width: 15%">Status</th>
+                            <th scope="col" style="width: 20%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="book-list">
+                        {% for book in book_list %}
+                            {% include "partial_individual_book.html" %}
+                        {% endfor %}
+                    </tbody>
+                </table>
 
-                    {% for book in book_list %}
-
-                        {% include "partial_individual_book.html" %}
-
-                    {% endfor %}
-
-                </div>
             </div>
         </div>
     </div>
@@ -39,10 +47,10 @@
     <script src="https://unpkg.com/htmx.org@1.8.4"></script>
 
     <!--
-    The script below resets the form when a form is submitted. This resets the
-    input fields to empty strinsg after a request is made. Without this the
-    input fields would continue to contain the previous input.
-    Here, 'input.title' matches the class name of the input field.
+    The script below resets the input fields in the create book form when the
+    form is submitted. Without this script the input fields would continue to
+    contain the previous input. Here, 'input.title' matches the class name of
+    the input field.
     -->
     <script>
         document.body.addEventListener('htmx:afterRequest', (event) => {

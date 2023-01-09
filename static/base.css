@@ -1,4 +1,12 @@
 body {
     padding-top: 50px;
+    background-color: rgb(246, 246, 246);
+}
+
+thead {
     background-color: rgb(240, 240, 240);
+}
+
+tbody {
+    background-color: rgb(252, 252, 252);
 }

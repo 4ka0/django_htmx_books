@@ -1,34 +1,51 @@
-<article class="mt-3">
+<tr class="{% if book.read %}text-muted{% endif %}">
 
-    {{ book.title }},
-    {{ book.author }},
-    {{ book.price }},
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.price }}</td>
 
-    {% if not book.read %}
+    <!-- Status cell -->
+    <td>
+        {% if not book.read %}
+            Not read yet
+        {% else %}
+            Already read
+        {% endif %}
+    </td>
 
-        <button class="btn btn-primary btn-sm"
-                hx-put="{% url 'update_read_status' book.id %}"
-                hx-target="closest article"
+    <!-- Action button cell -->
+    <td>
+
+        {% if not book.read %}
+
+            <!-- Button to change to 'read' -->
+            <button class="btn btn-primary btn-sm"
+                    hx-put="{% url 'update_read_status' book.id %}"
+                    hx-target="closest tr"
+                    hx-swap="outerHTML" >
+                Mark as read
+            </button>
+
+        {% else %}
+
+            <!-- Button to change to 'unread' -->
+            <button class="btn btn-secondary btn-sm"
+                    hx-put="{% url 'update_read_status' book.id %}"
+                    hx-target="closest tr"
+                    hx-swap="outerHTML" >
+                Mark as unread
+            </button>
+
+        {% endif %}
+
+        <!-- Delete button -->
+        <button class="btn btn-danger btn-sm ms-3"
+                hx-delete="{% url 'delete_book' book.id %}"
+                hx-target="closest tr"
                 hx-swap="outerHTML" >
-            Mark as read
+            Delete
         </button>
 
-    {% else %}
+    </td>
 
-        <button class="btn btn-secondary btn-sm"
-                hx-put="{% url 'update_read_status' book.id %}"
-                hx-target="closest article"
-                hx-swap="outerHTML" >
-            Mark as unread
-        </button>
-
-    {% endif %}
-
-    <button class="btn btn-danger btn-sm"
-            hx-delete="{% url 'delete_book' book.id %}"
-            hx-target="closest article"
-            hx-swap="outerHTML" >
-        Delete
-    </button>
-
-</article>
+</tr>

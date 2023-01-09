@@ -1,7 +1,7 @@
 <form class="form-inline"
       hx-post="{% url 'create_book' %}"
       hx-target="#book-list"
-      hx-swap="afterend" >
+      hx-swap="beforeend" >  <!-- Appends content after the last child inside book-list -->
 
     <div class="row">
 
