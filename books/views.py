@@ -31,6 +31,9 @@ def delete_book(request, pk):
 @require_http_methods(['PUT'])
 def update_read_status(request, pk):
     book = Book.objects.get(pk=pk)
-    book.read = True
+    if book.read:
+        book.read = False
+    else:
+        book.read = True
     book.save()
     return render(request, 'partial_individual_book.html', {'book': book})

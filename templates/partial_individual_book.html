@@ -15,7 +15,12 @@
 
     {% else %}
 
-        Already read,
+        <button class="btn btn-secondary btn-sm"
+                hx-put="{% url 'update_read_status' book.id %}"
+                hx-target="closest article"
+                hx-swap="outerHTML" >
+            Mark as unread
+        </button>
 
     {% endif %}
 
