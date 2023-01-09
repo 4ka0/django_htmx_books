@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Books{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <!-- Form to create a new book -->
+
+                {% include "partial_create_book_form.html" %}
+
+                <!-- List of books -->
+
+                <div id="book-list" class="mt-4">
+
+                    {% for book in book_list %}
+
+                        {% include "partial_individual_book.html" %}
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+
+    <!--
+    The script below resets the form when a form is submitted. This resets the
+    input fields to empty strinsg after a request is made. Without this the
+    input fields would continue to contain the previous input.
+    Here, 'input.title' matches the class name of the input field.
+    -->
+    <script>
+        document.body.addEventListener('htmx:afterRequest', (event) => {
+            document.querySelector('input.title').value = '';
+            document.querySelector('input.author').value = '';
+            document.querySelector('input.price').value = '';
+        });
+    </script>
+
+  </body>
+</html>

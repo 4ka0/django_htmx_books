@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from .models import Book
 
 
-class AddBookForm(ModelForm):
+class CreateBookForm(ModelForm):
 
     class Meta:
         model = Book

@@ -1,0 +1,32 @@
+<form hx-put="{% url 'update_read_status' book.id %}"
+      hx-target="this"
+      hx-swap="outerHTML" >
+
+    <article class="mt-3">
+
+        {{ book.title }},
+        {{ book.author }},
+        {{ book.price }},
+
+        {% if not book.read %}
+
+            <button>
+                Mark as read
+            </button>
+
+        {% else %}
+
+            Already read,
+
+        {% endif %}
+
+        <button
+           hx-delete="{% url 'delete_book' book.id %}"
+           hx-target="closest form"
+           hx-swap="outerHTML swap:200ms" >
+            Delete
+        </button>
+
+    </article>
+
+</form>

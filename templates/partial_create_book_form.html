@@ -1,0 +1,26 @@
+<form class="form-inline"
+      hx-post="{% url 'create_book' %}"
+      hx-target="#book-list"
+      hx-swap="afterend" >
+
+    <div class="row">
+
+        <div class="col">
+            <input type="text" class="title form-control" name="title" placeholder="Title">
+        </div>
+
+        <div class="col">
+            <input type="text" class="author form-control" name="author" placeholder="Author">
+        </div>
+
+        <div class="col">
+            <input type="text" class="price form-control" name="price" placeholder="Price">
+        </div>
+
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Add book</button>
+        </div>
+
+    </div>
+
+</form>
