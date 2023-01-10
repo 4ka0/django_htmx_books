@@ -2,7 +2,7 @@
 
     <td class="align-middle ps-2">{{ book.title }}</td>
     <td class="align-middle ps-2">{{ book.author }}</td>
-    <td class="align-middle text-center">{{ book.price }}</td>
+    <td class="align-middle text-center">{{ book.price|floatformat:2 }}</td>
 
     <!-- Status cell -->
     <td class="align-middle text-center">
