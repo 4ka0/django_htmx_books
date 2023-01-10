@@ -1,14 +1,14 @@
 <tr class="{% if book.read %}grey-text{% endif %}">
 
-    <td>{{ book.title }}</td>
-    <td>{{ book.author }}</td>
-    <td class="text-center">{{ book.price }}</td>
+    <td class="align-middle ps-2">{{ book.title }}</td>
+    <td class="align-middle ps-2">{{ book.author }}</td>
+    <td class="align-middle text-center">{{ book.price }}</td>
 
     <!-- Status cell -->
-    <td class="text-center">
+    <td class="align-middle text-center">
         {% if not book.read %}
 
-            <button class="btn btn-primary btn-sm status-button"
+            <button class="btn btn-primary btn-sm table-button status-button"
                     hx-put="{% url 'update_read_status' book.id %}"
                     hx-target="closest tr"
                     hx-swap="outerHTML" >
@@ -17,7 +17,7 @@
 
         {% else %}
 
-            <button class="btn btn-secondary btn-sm status-button"
+            <button class="btn btn-secondary btn-sm table-button status-button"
                     hx-put="{% url 'update_read_status' book.id %}"
                     hx-target="closest tr"
                     hx-swap="outerHTML" >
@@ -28,10 +28,10 @@
     </td>
 
     <!-- Action button cell -->
-    <td class="text-center">
+    <td class="align-middle text-center">
 
         <!-- Delete button -->
-        <button class="btn btn-danger btn-sm"
+        <button class="btn btn-danger btn-sm table-button"
                 hx-delete="{% url 'delete_book' book.id %}"
                 hx-target="closest tr"
                 hx-swap="outerHTML"

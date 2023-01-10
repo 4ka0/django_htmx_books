@@ -11,10 +11,18 @@ tbody {
     background-color: rgb(252, 252, 252);
 }
 
+td {
+    font-size: 14px;
+}
+
 .grey-text {
     color: rgb(192, 192, 192);
 }
 
 .status-button {
     width: 68px;
+}
+
+.table-button {
+    font-size: 13px;
 }
