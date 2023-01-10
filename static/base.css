@@ -10,3 +10,11 @@ thead {
 tbody {
     background-color: rgb(252, 252, 252);
 }
+
+.grey-text {
+    color: rgb(192, 192, 192);
+}
+
+.status-button {
+    width: 68px;
+}

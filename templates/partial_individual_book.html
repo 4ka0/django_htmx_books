@@ -1,4 +1,4 @@
-<tr class="{% if book.read %}text-muted{% endif %}">
+<tr class="{% if book.read %}grey-text{% endif %}">
 
     <td>{{ book.title }}</td>
     <td>{{ book.author }}</td>
@@ -7,42 +7,35 @@
     <!-- Status cell -->
     <td>
         {% if not book.read %}
-            Not read yet
+
+            <button class="btn btn-primary btn-sm status-button"
+                    hx-put="{% url 'update_read_status' book.id %}"
+                    hx-target="closest tr"
+                    hx-swap="outerHTML" >
+                Unread
+            </button>
+
         {% else %}
-            Already read
+
+            <button class="btn btn-secondary btn-sm status-button"
+                    hx-put="{% url 'update_read_status' book.id %}"
+                    hx-target="closest tr"
+                    hx-swap="outerHTML" >
+                Read
+            </button>
+
         {% endif %}
     </td>
 
     <!-- Action button cell -->
     <td>
 
-        {% if not book.read %}
-
-            <!-- Button to change to 'read' -->
-            <button class="btn btn-primary btn-sm"
-                    hx-put="{% url 'update_read_status' book.id %}"
-                    hx-target="closest tr"
-                    hx-swap="outerHTML" >
-                Mark as read
-            </button>
-
-        {% else %}
-
-            <!-- Button to change to 'unread' -->
-            <button class="btn btn-secondary btn-sm"
-                    hx-put="{% url 'update_read_status' book.id %}"
-                    hx-target="closest tr"
-                    hx-swap="outerHTML" >
-                Mark as unread
-            </button>
-
-        {% endif %}
-
         <!-- Delete button -->
         <button class="btn btn-danger btn-sm ms-3"
                 hx-delete="{% url 'delete_book' book.id %}"
                 hx-target="closest tr"
-                hx-swap="outerHTML" >
+                hx-swap="outerHTML"
+                hx-confirm="Are you sure you wish to delete this book?" >
             Delete
         </button>
 
