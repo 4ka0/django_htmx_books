@@ -15,6 +15,21 @@ td {
     font-size: 14px;
 }
 
+/* To adjust the table row height. */
+tr {
+    line-height: 26px;
+    min-height: 26px;
+    height: 26px;
+ }
+
+ /* To adjust the height of the input fields that appear in the table rows when
+    a books details are to be updated. */
+ .form-control-sm {
+    line-height: 24px;
+    min-height: 24px;
+    height: 24px;
+ }
+
 .grey-text {
     color: rgb(192, 192, 192);
 }
