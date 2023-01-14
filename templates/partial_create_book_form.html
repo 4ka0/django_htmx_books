@@ -1,7 +1,4 @@
-<form class="form-inline"
-      hx-post="{% url 'create_book' %}"
-      hx-target="#book-list"
-      hx-swap="beforeend" >  <!-- Appends content after the last child inside book-list -->
+<form class="form-inline">
 
     <div class="row">
 
@@ -18,7 +15,13 @@
         </div>
 
         <div class="col">
-            <button type="submit" class="btn btn-primary">Add book</button>
+            <button type="submit"
+                    class="btn btn-primary"
+                    hx-post="{% url 'create_book' %}"
+                    hx-target="#book-list"
+                    hx-swap="beforeend" >  <!-- Appends content after the last child inside book-list -->
+                Add book
+            </button>
         </div>
 
     </div>

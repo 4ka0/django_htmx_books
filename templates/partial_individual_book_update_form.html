@@ -1,0 +1,53 @@
+<tr class="{% if book.read %}grey-text{% endif %}">
+
+    <form class="form-inline" >
+
+        <!-- Title, author, and price cells -->
+        <td class="align-middle ps-2">
+            <input type="text" class="title form-control form-control-sm" name="title" value="{{ book.title }}">
+        </td>
+
+        <td class="align-middle ps-2">
+            <input type="text" class="author form-control form-control-sm" name="author" value="{{ book.author }}">
+        </td>
+
+        <td class="align-middle text-center">
+            <input type="text" class="price form-control form-control-sm" name="price" value="{{ book.price }}">
+        </td>
+
+        <!-- Status cell -->
+        <td class="align-middle text-center">
+
+            {% if not book.read %}
+
+                <button class="btn btn-primary btn-sm table-button status-button" disabled>
+                    Unread
+                </button>
+
+            {% else %}
+
+                <button class="btn btn-secondary btn-sm table-button status-button" disabled>
+                    Read
+                </button>
+
+            {% endif %}
+
+        </td>
+
+        <!-- Action button cell -->
+        <td class="align-middle text-center">
+
+            <!-- Save button -->
+            <button type="submit"
+                    class="btn btn-success btn-sm table-button"
+                    hx-post="{% url 'update_book' book.id %}"
+                    hx-target="closest tr"
+                    hx-swap="outerHTML" >
+                Save
+            </button>
+
+        </td>
+
+    </form>
+
+</tr>

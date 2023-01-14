@@ -4,7 +4,7 @@ from django.views.decorators.http import require_http_methods
 from django.http.response import HttpResponse
 
 from .models import Book
-from .forms import CreateBookForm
+from .forms import BookForm
 
 
 class BookListView(ListView):
@@ -15,7 +15,7 @@ class BookListView(ListView):
 
 @require_http_methods(['POST'])
 def create_book(request):
-    form = CreateBookForm(request.POST)
+    form = BookForm(request.POST)
     if form.is_valid:
         book = form.save()
     return render(request, 'partial_individual_book.html', {'book': book})
@@ -37,3 +37,21 @@ def update_read_status(request, pk):
         book.read = True
     book.save()
     return render(request, 'partial_individual_book.html', {'book': book})
+
+
+# maybe something to do with the read boolean not being handled?
+
+def update_book(request, pk):
+    book = Book.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            print("\n***** FORM IS VALID *****")
+            book = form.save()
+            return render(request, 'partial_individual_book.html', {'book': book})
+        else:
+            print("\n***** FORM IS NOT VALID *****")
+            print(form)
+    else:
+        form = BookForm(instance=book)
+    return render(request, 'partial_individual_book_update_form.html', {'book': book, 'form': form})

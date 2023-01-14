@@ -1,11 +1,13 @@
 <tr class="{% if book.read %}grey-text{% endif %}">
 
+    <!-- Title, author, and price cells -->
     <td class="align-middle ps-2">{{ book.title }}</td>
     <td class="align-middle ps-2">{{ book.author }}</td>
     <td class="align-middle text-center">{{ book.price|floatformat:2 }}</td>
 
     <!-- Status cell -->
     <td class="align-middle text-center">
+
         {% if not book.read %}
 
             <button class="btn btn-primary btn-sm table-button status-button"
@@ -25,10 +27,19 @@
             </button>
 
         {% endif %}
+
     </td>
 
     <!-- Action button cell -->
     <td class="align-middle text-center">
+
+        <!-- Update button -->
+        <button class="btn btn-primary btn-sm table-button"
+                hx-put="{% url 'update_book' book.id %}"
+                hx-target="closest tr"
+                hx-swap="outerHTML" >
+            Edit
+        </button>
 
         <!-- Delete button -->
         <button class="btn btn-danger btn-sm table-button"
