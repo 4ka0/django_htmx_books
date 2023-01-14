@@ -50,6 +50,17 @@
                 Save
             </button>
 
+            <!-- Cancel button
+                 Similar to a detail view in normal Django, gets the details of
+                 the specific object and replaces the current row.
+             -->
+             <button class="btn btn-danger btn-sm table-button"
+                     hx-get="{% url 'get_book' book.id %}"
+                     hx-target="closest tr"
+                     hx-swap="outerHTML" >
+                Cancel
+            </button>
+
         </td>
 
     </form>

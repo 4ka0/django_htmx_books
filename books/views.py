@@ -49,3 +49,8 @@ def update_book(request, pk):
     else:
         form = BookForm(instance=book)
     return render(request, 'partial_individual_book_update_form.html', {'book': book, 'form': form})
+
+
+def get_book(request, pk):
+    book = Book.objects.get(pk=pk)
+    return render(request, 'partial_individual_book.html', {'book': book})
