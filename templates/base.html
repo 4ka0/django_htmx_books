@@ -31,8 +31,19 @@
                             <th scope="col" style="width: 30%" class="text-center">
                                 <small>
                                     Book Title
-                                    <a href="">
-                                        <i class="bi bi-arrow-down-up ms-2"></i>
+                                    <!-- Arrow icon, sort ascending -->
+                                    <a href=""
+                                       hx-get="{% url 'book_list_sort_title' direction='ascend' %}"
+                                       hx-target="#book-list"
+                                       hx-swap="innerHTML" >
+                                        <i class="table-icon bi bi-arrow-down-square ms-2"></i>
+                                    </a>
+                                    <!-- Arrow icon, sort descending -->
+                                    <a href=""
+                                       hx-get="{% url 'book_list_sort_title' direction='descend' %}"
+                                       hx-target="#book-list"
+                                       hx-swap="innerHTML" >
+                                        <i class="table-icon bi bi-arrow-up-square"></i>
                                     </a>
                                 </small>
                             </th>
@@ -40,18 +51,12 @@
                             <th scope="col" style="width: 30%" class="text-center">
                                 <small>
                                     Author
-                                    <a href="">
-                                        <i class="bi bi-arrow-down-up ms-2"></i>
-                                    </a>
                                 </small>
                             </th>
 
                             <th scope="col" style="width: 12%" class="text-center">
                                 <small>
                                     Price
-                                    <a href="">
-                                        <i class="bi bi-arrow-down-up ms-2"></i>
-                                    </a>
                                 </small>
                             </th>
 
@@ -69,10 +74,9 @@
 
                         </tr>
                     </thead>
+                    <!-- id provided so as to be targeted by sorting arrows -->
                     <tbody id="book-list">
-                        {% for book in book_list %}
-                            {% include "partial_book_detail.html" %}
-                        {% endfor %}
+                        {% include "partial_book_list.html" %}
                     </tbody>
                 </table>
 

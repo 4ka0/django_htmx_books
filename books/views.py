@@ -13,6 +13,15 @@ def book_list(request):
 
 
 @require_http_methods(['GET'])
+def book_list_sort_title(request, direction):
+    if direction == 'ascend':
+        book_list = Book.objects.all().order_by('title')
+    else:
+        book_list = Book.objects.all().order_by('-title')
+    return render(request, 'partial_book_list.html', {'book_list': book_list})
+
+
+@require_http_methods(['GET'])
 def book_detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
     return render(request, 'partial_book_detail.html', {'book': book})

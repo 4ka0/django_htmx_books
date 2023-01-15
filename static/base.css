@@ -22,6 +22,11 @@ tr {
     height: 26px;
  }
 
+/* To remove erroneous underline between sort icons */
+a {
+    text-decoration: none;
+}
+
  /* To adjust the height of the input fields that appear in the table rows when
     a books details are to be updated. */
  .form-control-sm {
