@@ -24,10 +24,12 @@
                 <!-- Table of books -->
 
                 <table class="table table-bordered table-sm mt-5">
+
                     <thead>
                         <tr>
-                            <!-- Table column headers -->
+                            <!-- Table column headings -->
 
+                            <!-- Book title heading  -->
                             <th scope="col" style="width: 30%" class="text-center">
                                 <small>
                                     Book Title
@@ -48,24 +50,28 @@
                                 </small>
                             </th>
 
+                            <!-- Book author heading  -->
                             <th scope="col" style="width: 30%" class="text-center">
                                 <small>
                                     Author
                                 </small>
                             </th>
 
+                            <!-- Book price heading  -->
                             <th scope="col" style="width: 12%" class="text-center">
                                 <small>
                                     Price
                                 </small>
                             </th>
 
+                            <!-- Book status heading  -->
                             <th scope="col" style="width: 14%" class="text-center">
                                 <small>
                                     Status
                                 </small>
                             </th>
 
+                            <!-- Action buttons heading  -->
                             <th scope="col" style="width: 14%" class="text-center">
                                 <small>
                                     Actions
@@ -74,10 +80,12 @@
 
                         </tr>
                     </thead>
-                    <!-- id provided so as to be targeted by sorting arrows -->
+
+                    <!-- CSS id provided so as to be targeted by the arrow icons for sorting -->
                     <tbody id="book-list">
                         {% include "partial_book_list.html" %}
                     </tbody>
+
                 </table>
 
             </div>
