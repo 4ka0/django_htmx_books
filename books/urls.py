@@ -1,15 +1,15 @@
 from django.urls import path
 
 from .views import (
-    BookListView, create_book, delete_book, update_read_status, update_book, get_book
+    book_list, book_detail, create_book, delete_book, update_book_details, update_book_status
 )
 
 
 urlpatterns = [
-    path("", BookListView.as_view(), name="book_list"),
+    path("", book_list, name="book_list"),
+    path("book_detail/<int:pk>/", book_detail, name="book_detail"),
     path("create_book/", create_book, name="create_book"),
     path("delete_book/<int:pk>/", delete_book, name="delete_book"),
-    path("update_read_status/<int:pk>/", update_read_status, name="update_read_status"),
-    path("update_book/<int:pk>/", update_book, name="update_book"),
-    path("get_book/<int:pk>/", get_book, name="get_book"),
+    path("update_book_status/<int:pk>/", update_book_status, name="update_book_status"),
+    path("update_book_details/<int:pk>/", update_book_details, name="update_book_details"),
 ]

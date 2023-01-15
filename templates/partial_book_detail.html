@@ -11,7 +11,7 @@
         {% if not book.read %}
 
             <button class="btn btn-primary btn-sm table-button status-button"
-                    hx-put="{% url 'update_read_status' book.id %}"
+                    hx-put="{% url 'update_book_status' book.id %}"
                     hx-target="closest tr"
                     hx-swap="outerHTML" >
                 Unread
@@ -20,7 +20,7 @@
         {% else %}
 
             <button class="btn btn-secondary btn-sm table-button status-button"
-                    hx-put="{% url 'update_read_status' book.id %}"
+                    hx-put="{% url 'update_book_status' book.id %}"
                     hx-target="closest tr"
                     hx-swap="outerHTML" >
                 Read
@@ -35,7 +35,7 @@
 
         <!-- Edit button -->
         <button class="btn btn-primary btn-sm table-button me-2"
-                hx-put="{% url 'update_book' book.id %}"
+                hx-put="{% url 'update_book_details' book.id %}"
                 hx-target="closest tr"
                 hx-swap="outerHTML" >
             Edit

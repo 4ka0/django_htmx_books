@@ -4,15 +4,15 @@
 
         <!-- Title, author, and price cells -->
         <td class="align-middle ps-2">
-            <input type="text" class="title form-control form-control-sm" name="title" value="{{ book.title }}">
+            <input type="text" class="form-control form-control-sm" name="title" value="{{ book.title }}">
         </td>
 
         <td class="align-middle ps-2">
-            <input type="text" class="author form-control form-control-sm" name="author" value="{{ book.author }}">
+            <input type="text" class="form-control form-control-sm" name="author" value="{{ book.author }}">
         </td>
 
         <td class="align-middle text-center">
-            <input type="text" class="price form-control form-control-sm" name="price" value="{{ book.price }}">
+            <input type="text" class="form-control form-control-sm" name="price" value="{{ book.price }}">
         </td>
 
         <!-- Status cell -->
@@ -43,7 +43,7 @@
              -->
             <button type="submit"
                     class="btn btn-success btn-sm table-button me-2"
-                    hx-post="{% url 'update_book' book.id %}"
+                    hx-post="{% url 'update_book_details' book.id %}"
                     hx-target="closest tr"
                     hx-swap="outerHTML"
                     hx-include="closest tr" >
@@ -55,7 +55,7 @@
                  the specific object and replaces the current row.
              -->
              <button class="btn btn-danger btn-sm table-button"
-                     hx-get="{% url 'get_book' book.id %}"
+                     hx-get="{% url 'book_detail' book.id %}"
                      hx-target="closest tr"
                      hx-swap="outerHTML" >
                 Cancel
