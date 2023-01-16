@@ -35,14 +35,14 @@
                                     Book Title
                                     <!-- Arrow icon, sort ascending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_title' direction='ascend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='title' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
                                     <!-- Arrow icon, sort descending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_title' direction='descend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='title' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-up-square"></i>
@@ -56,14 +56,14 @@
                                     Author
                                     <!-- Arrow icon, sort ascending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_author' direction='ascend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='author' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
                                     <!-- Arrow icon, sort descending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_author' direction='descend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='author' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-up-square"></i>
@@ -77,14 +77,14 @@
                                     Price
                                     <!-- Arrow icon, sort ascending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_price' direction='ascend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='price' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
                                     <!-- Arrow icon, sort descending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_price' direction='descend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='price' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-up-square"></i>
@@ -98,14 +98,14 @@
                                     Status
                                     <!-- Arrow icon, sort ascending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_status' direction='ascend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='read' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
                                     <!-- Arrow icon, sort descending -->
                                     <a href=""
-                                       hx-get="{% url 'book_list_sort_status' direction='descend' %}"
+                                       hx-get="{% url 'book_list_sort' filter='read' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
                                         <i class="table-icon bi bi-arrow-up-square"></i>

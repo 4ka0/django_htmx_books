@@ -13,38 +13,11 @@ def book_list(request):
 
 
 @require_http_methods(['GET'])
-def book_list_sort_title(request, direction):
+def book_list_sort(request, filter, direction):
     if direction == 'ascend':
-        book_list = Book.objects.all().order_by('title')
+        book_list = Book.objects.all().order_by(filter)
     else:
-        book_list = Book.objects.all().order_by('-title')
-    return render(request, 'partial_book_list.html', {'book_list': book_list})
-
-
-@require_http_methods(['GET'])
-def book_list_sort_author(request, direction):
-    if direction == 'ascend':
-        book_list = Book.objects.all().order_by('author')
-    else:
-        book_list = Book.objects.all().order_by('-author')
-    return render(request, 'partial_book_list.html', {'book_list': book_list})
-
-
-@require_http_methods(['GET'])
-def book_list_sort_price(request, direction):
-    if direction == 'ascend':
-        book_list = Book.objects.all().order_by('price')
-    else:
-        book_list = Book.objects.all().order_by('-price')
-    return render(request, 'partial_book_list.html', {'book_list': book_list})
-
-
-@require_http_methods(['GET'])
-def book_list_sort_status(request, direction):
-    if direction == 'ascend':
-        book_list = Book.objects.all().order_by('read')
-    else:
-        book_list = Book.objects.all().order_by('-read')
+        book_list = Book.objects.all().order_by('-' + filter)
     return render(request, 'partial_book_list.html', {'book_list': book_list})
 
 
