@@ -13,7 +13,10 @@ from .views import (
 
 urlpatterns = [
     path("", book_list, name="book_list"),
+
     path("book_list_sort/<filter>/<direction>/", book_list_sort, name="book_list_sort"),
+    # path("book_list_sort/<int:pk>/<direction>/", book_list_sort, name="book_list_sort"),
+
     path("book_detail/<int:pk>/", book_detail, name="book_detail"),
     path("create_book/", create_book, name="create_book"),
     path("delete_book/<int:pk>/", delete_book, name="delete_book"),

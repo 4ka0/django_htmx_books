@@ -1,6 +1,7 @@
 <tr class="{% if book.read %}grey-text{% endif %}">
 
-    <!-- Title, author, and price cells -->
+    <!-- ID, title, author, and price cells -->
+    <td class="align-middle text-center ps-2">{{ book.id }}</td>
     <td class="align-middle ps-2">{{ book.title }}</td>
     <td class="align-middle ps-2">{{ book.author }}</td>
     <td class="align-middle text-center">{{ book.price|floatformat:2 }}</td>

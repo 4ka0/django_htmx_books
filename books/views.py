@@ -14,10 +14,16 @@ def book_list(request):
 
 @require_http_methods(['GET'])
 def book_list_sort(request, filter, direction):
-    if direction == 'ascend':
-        book_list = Book.objects.all().order_by(filter)
+    if filter == "id":
+        if direction == 'ascend':
+            book_list = Book.objects.all().order_by('pk')
+        else:
+            book_list = Book.objects.all().order_by('-pk')
     else:
-        book_list = Book.objects.all().order_by('-' + filter)
+        if direction == 'ascend':
+            book_list = Book.objects.all().order_by(filter)
+        else:
+            book_list = Book.objects.all().order_by('-' + filter)
     return render(request, 'partial_book_list.html', {'book_list': book_list})
 
 

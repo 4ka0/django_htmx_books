@@ -29,8 +29,29 @@
                         <tr>
                             <!-- Table column headings -->
 
+                            <!-- Book number heading  -->
+                            <th scope="col" style="width: 10%" class="text-center">
+                                <small>
+                                    Book No.
+                                    <!-- Arrow icon, sort descending -->
+                                    <a href=""
+                                       hx-get="{% url 'book_list_sort' filter='id' direction='ascend' %}"
+                                       hx-target="#book-list"
+                                       hx-swap="innerHTML" >
+                                        <i class="table-icon bi bi-arrow-up-square ms-2"></i>
+                                    </a>
+                                    <!-- Arrow icon, sort ascending -->
+                                    <a href=""
+                                       hx-get="{% url 'book_list_sort' filter='id' direction='descend' %}"
+                                       hx-target="#book-list"
+                                       hx-swap="innerHTML" >
+                                        <i class="table-icon bi bi-arrow-down-square"></i>
+                                    </a>
+                                </small>
+                            </th>
+
                             <!-- Book title heading  -->
-                            <th scope="col" style="width: 30%" class="text-center">
+                            <th scope="col" style="width: 25%" class="text-center">
                                 <small>
                                     Book Title
                                     <!-- Arrow icon, sort descending -->
@@ -51,7 +72,7 @@
                             </th>
 
                             <!-- Book author heading  -->
-                            <th scope="col" style="width: 30%" class="text-center">
+                            <th scope="col" style="width: 25%" class="text-center">
                                 <small>
                                     Author
                                     <!-- Arrow icon, sort descending -->

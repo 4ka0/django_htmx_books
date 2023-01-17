@@ -2,7 +2,12 @@
 
     <form class="form-inline" >
 
-        <!-- Title, author, and price cells -->
+        <!-- ID, Title, author, and price cells -->
+        <td class="align-middle text-center ps-2">
+            {{ book.id }}
+
+        </td>
+
         <td class="align-middle ps-2">
             <input type="text" class="form-control form-control-sm" name="title" value="{{ book.title }}">
         </td>
