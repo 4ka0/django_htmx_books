@@ -1,7 +1,9 @@
 ## django_htmx_books
 
-Simple CRUD app for managing a table of books.<br>
+A simple CRUD app for managing a table of books.<br>
 Built using Django and HTMX.<br>
 HTMX is used to enable AJAX requests and thereby avoid full page reloads.
 
-![alt text](screenshot.png "Screenshot")
+### Example:
+
+https://github.com/4ka0/django_htmx_books/assets/39420293/1e50b3fa-f4dd-459d-bc41-0315c4a1e44f
