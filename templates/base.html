@@ -33,19 +33,18 @@
                             <th scope="col" style="width: 10%" class="text-center">
                                 <small>
                                     Book No.
-                                    <!-- Arrow icon, sort descending -->
+                                    <!-- Arrow icons -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='id' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-up-square ms-2"></i>
+                                        <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
-                                    <!-- Arrow icon, sort ascending -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='id' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-down-square"></i>
+                                        <i class="table-icon bi bi-arrow-up-square"></i>
                                     </a>
                                 </small>
                             </th>
@@ -54,19 +53,18 @@
                             <th scope="col" style="width: 25%" class="text-center">
                                 <small>
                                     Book Title
-                                    <!-- Arrow icon, sort descending -->
+                                    <!-- Arrow icons -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='title' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-up-square ms-2"></i>
+                                        <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
-                                    <!-- Arrow icon, sort ascending -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='title' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-down-square"></i>
+                                        <i class="table-icon bi bi-arrow-up-square"></i>
                                     </a>
                                 </small>
                             </th>
@@ -75,19 +73,18 @@
                             <th scope="col" style="width: 25%" class="text-center">
                                 <small>
                                     Author
-                                    <!-- Arrow icon, sort descending -->
+                                    <!-- Arrow icons -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='author' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-up-square ms-2"></i>
+                                        <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
-                                    <!-- Arrow icon, sort ascending -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='author' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-down-square"></i>
+                                        <i class="table-icon bi bi-arrow-up-square"></i>
                                     </a>
                                 </small>
                             </th>
@@ -96,19 +93,18 @@
                             <th scope="col" style="width: 12%" class="text-center">
                                 <small>
                                     Price (¥)
-                                    <!-- Arrow icon, sort descending -->
+                                    <!-- Arrow icons -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='price' direction='ascend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-up-square ms-2"></i>
+                                        <i class="table-icon bi bi-arrow-down-square ms-2"></i>
                                     </a>
-                                    <!-- Arrow icon, sort ascending -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='price' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-down-square"></i>
+                                        <i class="table-icon bi bi-arrow-up-square"></i>
                                     </a>
                                 </small>
                             </th>
@@ -117,19 +113,18 @@
                             <th scope="col" style="width: 14%" class="text-center">
                                 <small>
                                     Status
-                                    <!-- Arrow icon, sort descending -->
-                                    <a href=""
-                                       hx-get="{% url 'book_list_sort' filter='read' direction='ascend' %}"
-                                       hx-target="#book-list"
-                                       hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-up-square ms-2"></i>
-                                    </a>
-                                    <!-- Arrow icon, sort ascending -->
+                                    <!-- Arrow icons -->
                                     <a href=""
                                        hx-get="{% url 'book_list_sort' filter='read' direction='descend' %}"
                                        hx-target="#book-list"
                                        hx-swap="innerHTML" >
-                                        <i class="table-icon bi bi-arrow-down-square"></i>
+                                        <i class="table-icon bi bi-arrow-down-square ms-2"></i>
+                                    </a>
+                                    <a href=""
+                                       hx-get="{% url 'book_list_sort' filter='read' direction='ascend' %}"
+                                       hx-target="#book-list"
+                                       hx-swap="innerHTML" >
+                                        <i class="table-icon bi bi-arrow-up-square"></i>
                                     </a>
                                 </small>
                             </th>
@@ -144,7 +139,7 @@
                         </tr>
                     </thead>
 
-                    <!-- CSS id provided so as to be targeted by the arrow icons for sorting -->
+                    <!-- CSS id provided so as to be targeted by the above arrow icons for sorting -->
                     <tbody id="book-list">
                         {% include "partial_book_list.html" %}
                     </tbody>
